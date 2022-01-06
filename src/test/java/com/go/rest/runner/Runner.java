@@ -11,13 +11,13 @@ import java.io.File;
 
 
 @CucumberOptions(
-		plugin = {"pretty","html:target/cucumber-reports"},
+		plugin = {"pretty","html:target/Reports/cucumber-reports"},
 		tags="@SmokeTest",
 		features = "src/test/resources/features",
-		glue={"com.go.rest.stepdef", "com.go.rest.hooks"},
+		glue={"com.go.rest.stepdef"},
 		dryRun = false
 )
-public class TestNGRunner extends AbstractTestNGCucumberTests {
+public class Runner extends AbstractTestNGCucumberTests {
 
 	@Override
 	@DataProvider (parallel = true)
@@ -30,12 +30,12 @@ public class TestNGRunner extends AbstractTestNGCucumberTests {
 
 		Config.init();
 		String logfolderpath = System.getProperty("user.dir");
-		File f1 = new File(logfolderpath+"/target/logs");
+		File f1 = new File(logfolderpath+"/target/Reports/logs");
 		if(!f1.exists()){
 			f1.mkdir();
 		}
 
-		File f2 = new File(logfolderpath+"/target/cucumberReport");
+		File f2 = new File(logfolderpath + "/target/cucumberReport");
 		if(!f2.exists()){
 			f2.mkdir();
 		}

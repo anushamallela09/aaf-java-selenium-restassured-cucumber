@@ -1,8 +1,10 @@
 Feature: Verify the given user information
-@SmokeTest
+
+  @GetSmokeTest @SmokeTest
   Scenario: Verify the given user details
-    When I submit the JSON GET request for user id "2505"
-    Then Validate "gomorra Ega" from "name" node name in JSON response - json path "$.data.name"
-    Then Validate "gomorra@gmail.com" from "email" node name in JSON response - json path "data.email"
-    Then Validate "female" from "gender" node name in JSON response - json path "data.gender"
-    Then Validate "inactive" from "status" node name in JSON response - json path "data.status"
+    When I submit the JSON GET request for user id "1985"
+    Then validate the GET status code "200" from json response
+    Then Validate "vAllasani Peddanar119" from "name" node name in JSON response - json path "$.data.name"
+    Then Validate "allasani.peddanar5@222ce.com" from "email" node name in JSON response - json path "data.email"
+    Then Validate "male" from "gender" node name in JSON response - json path "data.gender"
+    Then Validate "active" from "status" node name in JSON response - json path "data.status"
