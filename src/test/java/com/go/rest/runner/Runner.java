@@ -30,14 +30,9 @@ public class Runner extends AbstractTestNGCucumberTests {
 
 		Config.init();
 		String logfolderpath = System.getProperty("user.dir");
-		File f1 = new File(logfolderpath+"/target/Reports/logs");
+		File f1 = new File(logfolderpath+"/target/Reports");
 		if(!f1.exists()){
 			f1.mkdir();
-		}
-
-		File f2 = new File(logfolderpath + "/target/cucumberReport");
-		if(!f2.exists()){
-			f2.mkdir();
 		}
 	}
 	@AfterSuite()

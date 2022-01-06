@@ -2,7 +2,7 @@
 <Configuration status="WARN">
 
 	<Properties>
-		<Property name="basePath">./target/Reports/logs</Property>
+		<Property name="basePath">./target/Reports</Property>
 	</Properties>
 	
 	
