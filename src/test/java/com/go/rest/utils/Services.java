@@ -5,6 +5,9 @@ import io.cucumber.datatable.DataTable;
 import org.json.simple.parser.JSONParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
@@ -44,8 +47,17 @@ public class Services {
 
         String val = "";
         try {
-            Path file = Path.of("src/test/resources/templates/" + requestFileName);
-            val = Files.readString(file);
+            //Path file = Path.of("src/test/resources/templates/" + requestFileName);
+            //val = Files.readString(file);
+            String sourcePath = System.getProperty("user.dir") + "\\src\\test\\resources\\templates\\" + requestFileName + ".txt";
+            FileReader reader = new FileReader(sourcePath);
+            BufferedReader bReader = new BufferedReader(reader);
+            String newLine = System.lineSeparator();
+            String temp = "";
+            while ((temp = bReader.readLine()) != null) {
+                val = val + temp + newLine;
+            }
+
             Set<String> keyList = testData.keySet();
             String data = "empty";
             Iterator var6 = keyList.iterator();
