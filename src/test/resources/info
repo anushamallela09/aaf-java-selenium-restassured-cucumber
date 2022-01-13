@@ -1,0 +1,4 @@
+mvn test -Dcucumber.options="--tags @SmokeTest" -Dtestng.threadCount=2
+mvn test -Dcucumber.options="--tags @SmokeTest" -Dtestng.threadCount="2"
+mvn test -Dcucumber.options="--tags @SmokeTest"
+mvn test

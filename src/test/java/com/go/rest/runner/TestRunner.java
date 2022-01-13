@@ -12,12 +12,12 @@ import java.io.File;
 
 @CucumberOptions(
 		plugin = {"pretty","html:target/Reports/cucumber-reports"},
-		tags="@SmokeTest",
+		tags="@UITest001",
 		features = "src/test/resources/features",
 		glue={"com.go.rest.stepdef"},
 		dryRun = false
 )
-public class Runner extends AbstractTestNGCucumberTests {
+public class TestRunner extends AbstractTestNGCucumberTests {
 
 	@Override
 	@DataProvider (parallel = true)

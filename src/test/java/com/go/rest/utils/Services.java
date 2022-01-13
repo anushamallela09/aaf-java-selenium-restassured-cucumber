@@ -5,11 +5,8 @@ import io.cucumber.datatable.DataTable;
 import org.json.simple.parser.JSONParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.Assert;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 
 public class Services {
@@ -26,10 +23,9 @@ public class Services {
             throw new RuntimeException("error in getValueFromJsonString");
         }
     }
-    public HashMap<String, String> convertDataTableValuesToList(DataTable dt){
-        HashMap<String, String> val = null;
+    public HashMap<String, String> convertDataTableToHashMap(DataTable dt){
+        HashMap<String, String> val = new HashMap<String, String>();
         try{
-            val = new HashMap<String, String>();
             List<List<String>> list  = dt.asLists(String.class);
             List<Map<String, String>> map  = dt.asMaps(String.class, String.class);
             if(list.get(0).size() != 2){
